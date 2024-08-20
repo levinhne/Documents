@@ -1,0 +1,16 @@
+#+title: It's
+#+author: levinhne
+
+* It's
+*It's* là một dạng viết tắt trong tiếng Anh. Nó có thể đại diện cho:
+ - *It is*: Đây là cách dùng phổ biến nhất. "It" là một đại từ chỉ sự vật, sự việc không xác định cụ thể hoặc đã được nhắc đến trước đó. "Is" là động từ to be ở dạng hiện tại.
+   *Ví dụ*:
+   - "It's a beautiful day." (Đó là một ngày đẹp.)
+   - "It's easy to learn English." (Việc học tiếng anh dễ dàng.)
+ - *It has*: Trong một số trường hợp, "it's" có thể là viết tắt của "it has", đặc biệt khi "has" được dùng như trợ động từ cho thì hiện tại hoàn thành.
+
+* Its
+*Its* là một đại từ sở hữu trong tiếng Anh, dùng để chỉ sự sở hữu của "it". Nó không có dấu (') trên đầu, và được sử dụng để chỉ một cái gì đó thuộc về "it" (thường là một sự vật, động vật hoặc khái niệm trừu tượng).
+*Ví dụ*:
+ - "The cat is licking its paws." (Con mèo đang liếm chân của nó.)
+ - "The company changed its policy." (Công ty đã thay đổi chính sách của mình.)
