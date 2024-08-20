@@ -1,0 +1,31 @@
+#+TITLE: What is Java?
+#+AUTHOR: levinhne
+
+Java là một ngôn ngữ lập trình đa năng, mạnh mẽ và huớng đối tượng, được phát triển bởi Sun Microsystems vào năm 1995 và hiện tại thuộc sở hữu của Oracle Corporation. Java được thiết kế với mục tiêu tạo ra một ngôn ngữ lập trình có thể viết một lần và chạy ở bất cứ đâu (wire once, run anywhere), tức là mã Java có thể chạy trên bất kỳ nền tảng nào có máy ảo Java (Java Virtual Machine - JVM).
+
+* Các đặc điểm nổi bật của Java:
+1. **Hướng đối tượng (Object-Oriented):**
+   - Java hoàn toàn là ngôn ngữ hướng đối tượng, tức là mọi thứ trong Java đều là đối tượng. Điều này giúp dễ dàng tổ chức và quản lý mã nguồn theo các module.
+2. **Độc lập nền tảng (Platform Independence):**
+   - Java biên dịch ra mã nguồn thành bytecode, và bytecode này có thể chạy được trên bất kỳ hệ điều hành nào có JVM. Điều này làm cho Java trở thành một ngôn ngữ đa nền tảng.
+3. **Bảo mật (Security):**
+   - Java có các tính năng bảo mật mạnh mẽ, bao gồm quản lý bộ nhớ và kiểm tra mã nguồn trước khi chạy, giúp bảo vệ chống lại các mối đe dọa bảo mật.
+4. **Đa luồng (Multithreading):**
+   - Java hỗ trợ lập trình đa luồng, cho phép một chương trình thực hiện nhiều tác vụ đồng thời, cải thiện hiệu suất và khả năng đáp ứng của ứng dụng.
+5. **Thu gom rác tự động (Garbage Collection):**
+   - Java quản lý bộ nhớ tự động thông qua cơ chế thu gom rác, giải phóng bộ nhớ không còn sử dụng đến mà không cần lập trình viên can thiệp thủ công.
+
+* Cấu trúc của một chương trình Java:
+Một chương trình Java cơ bản gồm các lớp (class) và phương thức (method). Dưới đây là ví dụ về một chương trình Java đơn giản in ra dòng chữ "Hello, World!":
+#+BEGIN_SRC java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+#+END_SRC
+
+* Các thành phần chính của Java:
+- **Java Development Kit (JDK):** Bộ công cụ phát triển cho lập trình viên Java, bao gồm trình biên dịch (javac), JVM, và các thư viện tiêu chuẩn.
+- **Java Runtime Environment (JRE):** Môi trường chạy ứng dụng Java, bao hồm JVM và các thư viện cần thiết.
+- **Java Virtual Machine (JVM):** Máy ảo Java, thực thi bytecode trên bất kỳ nền tảng nào.

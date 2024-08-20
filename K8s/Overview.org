@@ -1,0 +1,44 @@
+#+title: Overview
+#+author: levinhne
+
+Kubernetes (k8s) là một nền tảng nguồn mở dùng để tự động hóa việc triển khai, mở rộng, và quản lý các ứng dụng container hóa. Dưới đây là các thành phần chính trong Kubernetes.
+
+* Thành phần điều khiển (Control Plane Components)
+** kube-apiserver
+**kube-apiserver** là một trong những thành phần quan trọng nhất của Kubernetes, đóng vai trò là _cổng giao tiếp chính giữa tất cả các thành phần khác của hệ thống và người dùng_.
+
+1. **Chức năng chính của kube-apiserver**
+   - **Cung cấp API của Kubernetes**:
+     - kube-apiserver cung cấp các API RESTful mà người dùng, các thành phần bên trong Kubernetes và các công cụ bên ngoài sử dụng để tương tác với Kubernetes.
+     - Mọi thao tác quản lý, cấu hình và giám sát đều thông qua các API này.
+   - **Xác thực và phân quyền (Authentication and Authorization)**:
+     - kube-apiserver xử lý và xác thực người dùng và phần quyền truy cập đến các tài nguyên trong cụm K8s.
+     - Hỗ trợ nhiều cơ chế xác thực như token, cert, LDAP, và nhiều loại phần quyền như RBAC (Role-Based Access Control).
+   - **Xác thực dữ liệu (Admission Control)**:
+     - Sau khi xác thực và phân quyền, các yêu cầu còn phải được thông qua các bộ điều kiển (admission controllers).
+     - Các admission controller kiểm tra và thay đổi các yêu cầu (nếu cần) trước khi chúng được lưu vào etcd.
+   - **Quản lý trạng thái cụm (Cluster State Management)**:
+     - kube-apiserver chịu trách nhiệm quản lý trạng thái cụm bằng cách lưu trữ thông tin về các tài nguyên (như Pod, Service, ConfigMap, Secret) trong etcd.
+
+** etcd
+**etcd**: là một hệ thống lưu trữ key-value phần tán được sử dụng rộng rãi trong các hệ thống phân tán để lưu trữ cấu hình và trạng thái. Trong K8s, etcd đóng vai trò cực kỳ quan trọng trong việc lưu trữ tất cả dữ liệu cấu hình và trạng thái của cụm.
+
+1. **Chức năng chính**:
+   - **Lưu trữ cấu hình và trạng thái**: etcd lưu trữ thông tin về toàn bộ các tài nguyên trong K8s như Pod, Service, ConfigMap, Secret, Node, và nhiều loại tài nguyên khác.
+   - **Đồng bộ hóa dữ liệu**: Đảm bảo rằng các thay đổi cấu hình và trạng thái được đồng bộ hóa giữa các thành phần khác nhau của cụm K8s.
+   - **Quản lý khóa phân tán**: Cung cấp các tính năng quản lý khóa giúp điều phối và điều khiển truy cập tài nguyên trong môi trường phân tán.
+
+** kube-scheduler
+**kube-scheduler**: là một thành phần quan trọng trong hêj thống K8s, chịu trách nhiệm phân bổ các Pod đến các Node phù hợp trong cụm.
+
+1. **Chức năng chính**:
+   - **Phân bổ Pod**:
+     - Khi một Pod mới được tạo và chưa được lên lịch (unassigned), kube-scheduler sẽ quyết định Node nào chạy Pod đó.
+     - Quyết định này dựa trên nhiều yêu tố để đảm bảo rằng Pod được phần bổ một cách hợp lý và hiệu quả.
+   - **Tối ưu tài nguyên**:
+     - kube-scheduler tìm cách tối ưu hóa việc sử dụng tài nguyên của toàn bộ cụm bằng cách phân bổ dựa trên các tiêu chí như tài nguyên CPU, bộ nhớ, và các tài nguyên khác.
+   - **Đảm bảo yêu cầu của Pod**:
+     - Đảm bảo rằng các yêu cầu về tài nguyên của Pod (được định nghĩa trong PodSpec) được đáp ứng.
+     - Kiểm tra các ràng buộc về affinity (sự giống nhau) và anti-affinity, cũng như các yêu càu về volume và node selector.
+
+** kube-controller-manager

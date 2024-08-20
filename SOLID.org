@@ -1,0 +1,277 @@
+#+title: SOLID
+#+author: levinhne
+
+**SOLID** là một tập hợp năm nguyên tắc thiết kế phần mềm được đề xuất bới Robert.C Martin (Uncle Bob) năm 2000. Những nguyên tắc này giúp phát triển phần mềm dễ bảo trì, dễ mở rộng và giảm thiểu lỗi. Dưới đây là chi tiết về từng nguyên tắc:
+
+* Single Responsibility Princible (SRP) - Nguyên tắc trách nhiệm đơn lẻ:
+  1. **Định nghĩa**: Một class chỉ nên có một lý do để thay đổi, nghĩa là nó chỉ nên chịu trách nhiệm cho một nhiệm vụ duy nhất.
+  2. **Ý nghĩa**: Việc tuân thủ nguyên tác này giúp giảm sự phụ thuộc phức tạp của mã nguồn và làm cho việc bảo trì dễ hơn. Khi một class có nhiều trách nhiệm, việc thay đổi một trách nhiệm có thể ảnh hưởng đến nhiều trách nhiệm khác.
+  3. **Ví dụ**: Một struct Invoice không nên chịu trách nhiệm cả về việc tính toán và in hóa đơn. Thay vào đó, chúng ta có thể tách ra thành hai struct riêng biệt.
+
+       #+begin_src go
+       package main
+
+       import (
+               "fmt"
+       )
+
+       type Invoice struct {
+               Amount float64
+               Tax    float64
+       }
+
+       func (i Invoice) CalculateTotal() float64 {
+               return i.Amount + i.Tax
+       }
+
+       type InvoicePrinter struct{}
+
+       func (ip InvoicePrinter) PrintInvoice(i Invoice) {
+               fmt.Printf("Invoice Amount: %.2f\n", i.Amount)
+               fmt.Printf("Tax: %.2f\n", i.Tax)
+               fmt.Printf("Total: %.2f\n", i.CalculateTotal())
+       }
+
+       func main() {
+               inv := Invoice{Amount: 100, Tax: 10}
+               printer := InvoicePrinter{}
+               printer.PrintInvoice(inv)
+       }
+
+       #+end_src
+
+   Ở đây, Invoice chỉ chịu trách nhiệm về dữ liệu hóa đơn và tính toán, trong khi InvoicePrinter chịu trách nhiệm in hóa đơn.
+
+* Open/Closed Pinciple (OCP) - Nguyên tắc mở rộng/đóng:
+  1. **Định nghĩa**: Các thực thể phần mềm (class, module, function, v.v.) nên mở rộng nhưng đóng để thay đổi.
+  2. **Ý nghĩa**: Nguyên tắc này khuyến khích mở rộng một chức năng của một thực thể mà không cần thay đổi mã gốc, giúp giảm thiểu lôĩ khi thêm chức năng mới va tăng cường khả năng tái sử dụng.
+  3. **Ví dụ**: Thay vì sửa đổi struct gốc khi thêm một loại động vật mới, chúng ta có thể mở rộng chương trình bằng cách thêm các struct mới:
+
+       #+begin_src go
+       package main
+
+       import (
+               "fmt"
+       )
+
+       type Animal interface {
+               Speak() string
+       }
+
+       type Dog struct{}
+
+       func (d Dog) Speak() string {
+               return "Woof!"
+       }
+
+       type Cat struct{}
+
+       func (c Cat) Speak() string {
+               return "Meow!"
+       }
+
+       func PrintAnimalSound(a Animal) {
+               fmt.Println(a.Speak())
+       }
+
+       func main() {
+               dog := Dog{}
+               cat := Cat{}
+
+               PrintAnimalSound(dog)
+               PrintAnimalSound(cat)
+       }
+       #+end_src
+
+       Ở đây, chúng ta có thể thêm nhiều loại động vật khác mà không cần thay đổi hàm PrintAnimalSound.
+
+* Liskov Substition Principle (LSP) - Nguyên tắc thay thế Liskov:
+  1. **Định nghĩa**: Các đối tượng của lớp con phải có thể thay thế cho các đối tượng lớp cha mà không thay đổi tính đúng đắn của chương trình.
+  2. **Ý nghĩa**: Điều này đảm bảo rằng các lớp con có thể được sử dụng mà không cần quan tâm đến chi tiết thực thi của chúng, giúp cho việc mở rộng và duy trì hệ thống dễ dàng hơn.
+  3. **Ví dụ**: Giả sử chúng ta có một lớp Bird đại diện cho các loài chim và một lớp con Penguin đại diện cho loài chim cánh cụt. Trong đó, lớp Bird có một phương thức Fly.
+
+       #+begin_src go
+       package main
+
+       import "fmt"
+
+       type Bird struct {
+               Name string
+       }
+
+       func (b Bird) Fly() {
+               fmt.Println(b.Name, "is flying")
+       }
+
+       type Penguin struct {
+               Bird
+       }
+
+       func (p Penguin) Fly() {
+               fmt.Println(p.Name, "can't fly")
+       }
+
+       func MakeBirdFly(b Bird) {
+               b.Fly()
+       }
+
+       func main() {
+               eagle := Bird{Name: "Eagle"}
+               penguin := Penguin{Bird{Name: "Penguin"}}
+
+               MakeBirdFly(eagle)
+               MakeBirdFly(penguin.Bird)
+       }
+
+       #+end_src
+
+     - **Phân tích**:
+       - **Bird**: là lớp cơ bản,  đại diện cho các loài chim, với khả năng bay (Fly).
+       - **Penguin**: Là con của lớp Bird. Tuy nhiên loài chim cánh cụt không thể bay, nên phương thức Fly của nó sẽ in ra thông báo rằng không thể bay.
+     - **Vấn đề**:
+       Trong ví dụ này, khi ta gọi phương thức Fly trên đối tượng Penguin, nó trả về thông báo rằng chim cánh cụt không thể bay. Tuy nhiên, điều này phá vỡ nguyên tắc LSP vì lớp Penguin không thể thay thế hoàn toàn cho lớp Bird mà vẫn phải duy trì hành vì như mong đợi.
+       Nếu chúng ta thiết kế hệ thống dựa trên giả định rằng tất cả các đối tượng của Bird có thể bay, thì việc sử dụng Penguin trong chỗ mà Bird được kỳ vọng sẽ dẫn đến lỗi hoặc hành vi không mong muốn.
+     - **Cách khắc phục*:
+        Một cách tuân thủ nguyên tắc LSP là không nên kế thừa từ lớp Bird nếu không phải tất cả loài chim có thể bay. Thay vào đó chúng ta nên sử dụng một interface để đại diện cho cách loài chim có khả năng bay.
+
+           #+begin_src go
+           package main
+
+           import "fmt"
+
+           type Flyer interface {
+                   Fly()
+           }
+
+           type Bird struct {
+                   Name string
+           }
+
+           func (b Bird) Fly() {
+                   fmt.Println(b.Name, "is flying")
+           }
+
+           type Penguin struct {
+                   Name string
+           }
+
+           // Penguin không implement Flyer, vì nó không thể bay
+           func (p Penguin) Swim() {
+                   fmt.Println(p.Name, "is swimming")
+           }
+
+           func MakeFly(f Flyer) {
+                   f.Fly()
+           }
+
+           func main() {
+                   eagle := Bird{Name: "Eagle"}
+                   penguin := Penguin{Name: "Penguin"}
+
+                   MakeFly(eagle)
+                   // MakeFly(penguin) // Lỗi: Penguin không thể bay, nên không được phép truyền vào
+           }
+
+           #+end_src
+
+     - **Phân tích lại**:
+        Trong phiên bản này chúng ta tạo ra một interface Flyer dành riêng cho các đối tượng có khả năng bay. Lớp Penguin không thực hiện interface này vì không thể bay. Điều này đảm bảo rằng chỉ có những đối tượng có khả năng bay thực sự mới được sử dụng ở những nơi mà Flyer được mong đợi.
+        Như vậy, chúng ta đã tuân thủ nguyên tắc LSP bằng cách tránh việc kế thừa khi hành vi của lớp con không phù hợp với lớp cha.
+
+* Interface Segregation Principle (ISP) - Nguyên tắc phân tách giao diện:
+  1. **Định nghĩa**: Không nên ép buộc client phải thực hiện các giao diện mà họ không sử dụng. Thay vào đó, các giao diện nên được thiết kế nhỏ gọn và chuyên biệt.
+ 2. **Ý nghĩa**: Nguyên tác này giúp giảm sự phụ thuộc và sự phức tạp trong hệ thống bằng cách tạo ra các giao diện nhỏ và có mục đích cụ thể.
+ 3. **Ví dụ**: Không nên ép buộc một struct thực hiện các phương thức mà nó không cần:
+
+      #+begin_src go
+      package main
+
+      import (
+              "fmt"
+      )
+
+      type Printer interface {
+              Print() string
+      }
+
+      type Scanner interface {
+              Scan() string
+      }
+
+      type MultiFunctionDevice interface {
+              Printer
+              Scanner
+      }
+
+      type SimplePrinter struct{}
+
+      func (sp SimplePrinter) Print() string {
+              return "Printing..."
+      }
+
+      type AdvancedPrinterScanner struct{}
+
+      func (aps AdvancedPrinterScanner) Print() string {
+              return "Printing..."
+      }
+
+      func (aps AdvancedPrinterScanner) Scan() string {
+              return "Scanning..."
+      }
+
+      func main() {
+              sp := SimplePrinter{}
+              fmt.Println(sp.Print())
+
+              aps := AdvancedPrinterScanner{}
+              fmt.Println(aps.Print())
+              fmt.Println(aps.Scan())
+      }
+
+      #+end_src
+
+   Ở đây, SimplePrinter chỉ cần thực hiện interface Printer, không cần phải implement phương thức Scan.
+
+* Dependency Inversion Principle (DIP) - Nguyên tắc đảo ngược sự phụ thuộc:
+  1. **Định nghĩa**: Các module cấp cap không nên phụ thuốc vào các module cấp thấp. Cả hai nên phụ thuộc vào các abstraction. Các abstraction không nên phụ thuộc và các chi tiết. Chi tiết nên phụ thuộc vào abstraction.
+  2. **Ý nghĩa**: DIP khuyến khích việc sử dụng inerface hoặc abstract class để giảm sự phụ thuộc giữa các module, từ đó tăng cường tính linh hoạt và khả năng tái sử dụng của hệ thống.
+  3. **Ví dụ**: Các module cấp cao không nên phụ thuộc vào các module cấp thấp, cả hai nên phụ thuộc vào abstraction.
+
+       #+begin_src go
+       package main
+
+       import (
+               "fmt"
+       )
+
+       // Abstraction
+       type Database interface {
+               Connect() string
+       }
+
+       // Concrete implementation
+       type MySQLDatabase struct{}
+
+       func (db MySQLDatabase) Connect() string {
+               return "Connected to MySQL"
+       }
+
+       // High-level module
+       type Application struct {
+               Database Database
+       }
+
+       func (app Application) Start() {
+               fmt.Println(app.Database.Connect())
+       }
+
+       func main() {
+               mysql := MySQLDatabase{}
+               app := Application{Database: mysql}
+               app.Start()
+       }
+       #+end_src
+
+       Trong ví dụ này, Application không phụ thuộc trực tiếp vào MySQLDatabase, mà phụ thuộc vào abstraction Database, giúp cho việc thay đổi hoặc mở rộng ứng dụng dễ dàng hơn mà không ảnh hưởng đến phần khác của trương trình.
+
+**Kết luận**: Tuân thủ SOLID giúp tạo ra phần mềm có cấu trúc tốt, dễ bảo trì và mở rộng. Đây là những nguyên tác cở bản giúp lập trình viên thiết kế hệ thống linh hoạt và tránh những vấn đề thường gặp như mã phức tạp, khó bảo trì hoặc lỗi phát sinh khi mở rộng hệ thống.

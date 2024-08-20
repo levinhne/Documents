@@ -1,0 +1,11 @@
+#+title: Has
+#+author: levinhne
+
+*Has* là dạng hiện tại đơn của *have*. Nó được sử dụng với các chủ ngữ ở ngôi thứ ba số ít (/He/, /She/, /It/) để diễn đạt việc sở hữu hoặc trải nghiệp một điều gì đó. Ví dụ:
+- *He has a car*. (Anh ấy có một chiếc xe hơi.)
+- *She has a book*. (Cô ấy có một quyển sách.)
+- *It has been raining  all day*. (Trời đã mưa suốt cả ngày.)
+
+Trong các thì hoàn thành, *has* được  sử dụng kết hợp với động từ chính ở dạng quá khứ phân từ để tạo thành từ hiện toại hoàn thành.
+- *She has visited Paris*. (Cô ấy đã từng đến Paris.)
+- *He has finished his homework*. (Anh ấy đã làm xong bài tập về nhà.)

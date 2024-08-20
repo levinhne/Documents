@@ -1,0 +1,158 @@
+#+TITLE: Variable
+#+AUTHOR: levinhne
+
+Trong Java, biến (variable) là một tên định danh được sử dụng để lưu trữ giá trị dữ liệu. Mỗi biến trong Java đều có kiểu dữ liệu xác định, và kiểu dữ liệu này xác định kiểu và kích thước của giá trị mà biến có thể lưu trữ.
+
+* Khai báo biến
+Khi khai báo biến trong Java bao gồm xác định kiểu dữ liệu của biến và tên của biến. Cú pháp chung:
+#+begin_src java
+<kieu_du_lieu> <ten_bien>
+#+end_src
+
+Ví dụ:
+#+begin_src java
+int age;
+double salary;
+char initial;
+boolean isStudent;
+#+end_src
+
+* Quy tắc đặt tên biến
+Khi đặt tên biến trong Java, có một số quy tắc và quy ước cần tuân theo để đảm bảo mã nguồn dễ đọc, dễ hiểu và tuân thủ các chuẩn lập trình.
+** Quy tắc đặt tên biến
+Các quy tắc này là bắt buộc và được quy định bởi ngôn ngữ Java:
+- Tên biến chỉ có thể chứa các ký tự chữ cái, chữ số, dấu gạch dưới (_) và dấu dollar ($).
+#+begin_src java
+int myVariable;
+int my_variable;
+int $myVariable;
+#+end_src
+
+- Tên biến phải bắt đầu bằng một ký tự chữ cái (a-z, A-Z), dấu gạch dưới (_) hoặc dấu ($).
+#+begin_src java
+int myVariable;
+int _myVariable;
+int $myVariable;
+#+end_src
+
+- Tên biến không được bắt đầu bằng chứ số
+#+begin_src java
+// int 1stVariable; // fail
+int firstVariable; // pass
+#+end_src
+
+- Tên biến không được trung với các từ khóa (keywords) của Java.
+#+begin_src java
+// int class; // fail
+int myClass; // pass
+#+end_src
+
+- Tên biến phân biệt chữ hoa và chữ thường.
+#+begin_src java
+int myVariable;
+int MyVariable; // day la 2 bien khac nhau
+#+end_src
+
+** Quy ước đặt tên biến
+Các quy ước này không bắt buộc nhưng rất quan trọng để mã nguồn rõ ràng, dễ đọc và nhất quán.
+- **Tên biến nên bắt đầu bằng chữ cái thường** và sử dụng phong cách **camelCase** cho các biến có nhiều từ.
+#+begin_src java
+int myVariable;
+int numberOfStudents;
+#+end_src
+
+- **Tên biến nên có ý nghĩa và mô tả rõ ràng mục đích của biến**.
+#+begin_src java
+int age;
+int a; // khong ro rang
+#+end_src
+
+- **Sử dụng các từ viết tắt và viết tắt nếu cần thiết, nhưng đảm bảo chúng dễ hiểu**.
+#+begin_src java
+int maxTemperature;
+int minTemp; // Đúng
+int mT; // Không rõ ràng
+#+end_src
+
+- **Sử dụng các tiền tố hoặc hậu tố nếu cần để làm rõ loại dữ liệu hoặc mục đích sử dụng của biến**.
+#+begin_src java
+int customerCount;
+String customerName;
+#+end_src
+
+**Ví dụ về đặt tên biến tốt và không tốt**
+#+begin_src java
+// Tên biến tốt
+int studentAge;
+double accountBalance;
+String customerName;
+boolean isStudent;
+
+// Tên biến không tốt
+int a; // Không rõ ràng
+double b; // Không rõ ràng
+String str; // Không rõ ràng
+boolean flag; // Không rõ ràng
+#+end_src
+
+* Khởi tạo biến
+Biến có thể được khởi tạo khi khai báo hoặc sau khi khai báo. Khởi tạo biến nghĩa là gán giá trị ban đầu cho biến đó.
+Ví dụ:
+#+begin_src java
+int age = 25;
+double salary = 5000.0;
+char initial = 'A';
+booblean isStudent = true;
+// or
+int age;
+age = 25;
+#+end_src
+
+* Các lại biến
+Java có 3 loại biến chính:
+- **Biến cục bộ (Local Variables)**: Được khai báo bên trong phương thức, khối hoặc hàm khởi tạo (constructor). Biến cục bộ chỉ có phạm vi trong khối mà nó được khai báo.
+#+begin_src java
+public void myMethod() {
+    int localVar = 10; // localVar la bien cuc bo
+}
+#+end_src
+
+- **Biến thực thể (Instance Variables)**: Được khai báo bên trong lớp nhưng bên ngoài phương thức. Biến thực thể thuộc về một đối tượng cụ thể và tồn tại trong suốt vòng đời của đối tượng đó.
+#+begin_src java
+public class MyClass {
+    int instanceVar; // instanceVar la bien thuc the
+}
+#+end_src
+
+- **Biến lớp (Class Variables hoặc static Variables)**: Được khai báo với từ khóa =static= trong lớp. Biến static dùng chung cho tất cả các đối tượng trong lớp đó.
+#+begin_src java
+public class MyClass {
+    static int classVar; // classVar la bien lop
+}
+#+end_src
+
+* Phạm vi của biến
+- **Biến cục bộ**: Phạm vi của biến cục bộ là trong khối mà nói được khai báo.
+- **Biến thực thể**: Phạm vi của biến thực thể là toàn bộ lớp chứa nó, và nó có thể được truy cập mà không cần tạo đối tượng của lớp.
+- **Biến lớp**: Phạm vi của biến lớp là toàn bộ lớp chứa nó, và nó có thể được truy cập mà không cần tạo đối tượng của lớp.
+
+* Từ khóa đặc biệt liên quan đến biến
+- =final=: Biến được khai báo là =final= không thể thay đổi giá trị sau khi được khởi tạo.
+#+begin_src java
+final int finalVar = 100;
+finalVar = 200; // loi bien dich
+#+end_src
+
+- =static=: Biến được khai báo là =static= có thể được truy cập mà không cần tạo đối tượng của lớp.
+#+begin_src java
+public class MyClass {
+    static int staticVar = 30;
+}
+MyClass.staticVar = 50; // truy cap static ma khong can khoi tao doi tuong
+#+end_src
+
+* Tổng kết
+- Biến là nơi lưu trữ giá trị dữ liệu trong chương trình.
+- Java có các loại biến: cục bộ, thực thể, và lớp (static variable).
+- Biến có thể được khởi tạo khi khai báo hoặc sau khi khai báo.
+- Các từ khóa đặc biệt như =final= và =static= có thể được sử dụng để xác định các đặc tính cụ thể của biến.

@@ -1,0 +1,8 @@
+#+title: CV
+
+Dự án:
+- Xây dựng chức năng mới, và vận hành báo điện tử VnExpress.
+- Mô hình vận hành: Báo điện tử
+- Thời gian tham gia: 5 năm (chia làm hai giao đoạn, mỗi giao đoạn 2.5 năm)
+- Giai đoạn tham gia vào dự án: Tham gia vào phát triển tính năng mới và khâu vận hành.
+-
