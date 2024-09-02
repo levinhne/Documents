@@ -1,44 +1,45 @@
 #+title: SOLID
 #+author: levinhne
+#+date: <2024-08-30 Fri>
 
-*SOLID* là một tập hợp năm nguyên tắc thiết kế phần mềm được đề xuất bới Robert.C Martin (Uncle Bob) năm 2000. Những nguyên tắc này giúp phát triển phần mềm dễ bảo trì, dễ mở rộng và giảm thiểu lỗi. Dưới đây là chi tiết về từng nguyên tắc:
+*Solid* là một tập hợp năm nguyên tắc thiết kế phần mềm được đề xuất bới Robert.C Martin (Uncle Bob) năm 2000. Những nguyên tắc này giúp phát triển phần mềm dễ bảo trì, dễ mở rộng và giảm thiểu lỗi. Dưới đây là chi tiết về từng nguyên tắc:
 
 * Single Responsibility Princible (SRP) - Nguyên tắc trách nhiệm đơn lẻ:
   1. *Định nghĩa*: Một class chỉ nên có một lý do để thay đổi, nghĩa là nó chỉ nên chịu trách nhiệm cho một nhiệm vụ duy nhất.
   2. *Ý nghĩa*: Việc tuân thủ nguyên tác này giúp giảm sự phụ thuộc phức tạp của mã nguồn và làm cho việc bảo trì dễ hơn. Khi một class có nhiều trách nhiệm, việc thay đổi một trách nhiệm có thể ảnh hưởng đến nhiều trách nhiệm khác.
   3. *Ví dụ*: Một struct Invoice không nên chịu trách nhiệm cả về việc tính toán và in hóa đơn. Thay vào đó, chúng ta có thể tách ra thành hai struct riêng biệt.
 
-       #+begin_src go
-       package main
+#+begin_src go
+package main
 
-       import (
-               "fmt"
-       )
+import (
+        "fmt"
+)
 
-       type Invoice struct {
-               Amount float64
-               Tax    float64
-       }
+type Invoice struct {
+        Amount float64
+        Tax    float64
+}
 
-       func (i Invoice) CalculateTotal() float64 {
-               return i.Amount + i.Tax
-       }
+func (i Invoice) CalculateTotal() float64 {
+        return i.Amount + i.Tax
+}
 
-       type InvoicePrinter struct{}
+type InvoicePrinter struct{}
 
-       func (ip InvoicePrinter) PrintInvoice(i Invoice) {
-               fmt.Printf("Invoice Amount: %.2f\n", i.Amount)
-               fmt.Printf("Tax: %.2f\n", i.Tax)
-               fmt.Printf("Total: %.2f\n", i.CalculateTotal())
-       }
+func (ip InvoicePrinter) PrintInvoice(i Invoice) {
+        fmt.Printf("Invoice Amount: %.2f\n", i.Amount)
+        fmt.Printf("Tax: %.2f\n", i.Tax)
+        fmt.Printf("Total: %.2f\n", i.CalculateTotal())
+}
 
-       func main() {
-               inv := Invoice{Amount: 100, Tax: 10}
-               printer := InvoicePrinter{}
-               printer.PrintInvoice(inv)
-       }
+func main() {
+        inv := Invoice{Amount: 100, Tax: 10}
+        printer := InvoicePrinter{}
+        printer.PrintInvoice(inv)
+}
 
-       #+end_src
+#+end_src
 
    Ở đây, Invoice chỉ chịu trách nhiệm về dữ liệu hóa đơn và tính toán, trong khi InvoicePrinter chịu trách nhiệm in hóa đơn.
 
