@@ -1,0 +1,36 @@
+#+title:  Danh từ (Nouns)
+#+author: levinhne
+
+Danh từ (nouns) là từ hoặc nhóm từ chỉ người, con vật, vật thể, nơi chốn, khái niệm, tính chất hoặc hoạt đông.
+Ví dụ: girl (cô gái), cat (con mèo), table (cái bàn), London (London), happiness (hạnh phúc), beauty (vẻ đẹp), love (tình yêu).
+
+* Các loại danh từ
+1. *Danh từ chung và danh từ riêng (Common and proper nouse)*
+   - *Danh từ chung (Common nouns)*: là tên gọi chung của một loại người, vật hoặc sự vật.
+                Ví dụ: /doctor (bác sĩ), book (sách), city (thành phố), country (quốc gia)/.
+         Trong danh từ chung có danh từ tập hợp (collective nouns) là danh từ chỉ một nhóm người, vật hoặc sự vật.
+                Ví dụ: /family (gia đình), team (đội), class (lớp), audience (khán giả), government (chính phủ), group (nhóm)/.
+   - *Danh từ riêng (Proper nouns)*: là tên riêng của người, vật, nơi chốn, tổ chức,... Danh từ riêng luôn viết hoa chữ cái đầu tiên.
+                Ví dụ: /Mary (Mary), London (London), Vietnam (Việt Nam), Microsoft (Microsoft)/.
+2. *Danh từ cụ thể và danh từ trừu tượng (Concrete and abstract nouns)*
+   - *Danh từ cụ thể (Concrete nouns)*: là danh từ chung chỉ những thứ hữu hình mà chúng ta có thể nhận thức bằng các giác quan.
+                Ví dụ: /table (cái bàn), cat (con mèo), flower (bông hoa)/.
+   - *Danh từ trừu tượng (Abstract nouns)*: là danh từ chung chỉ cảm giác, tính chất, khái niệm, trạng thái hoặc hoạt động.
+                Ví dụ: /love (tình yêu), happiness (hạnh phúc), beauty (vẻ đẹp), freedom (tự do)/.
+3. *Danh từ đếm được và danh từ không đếm được (Countable and uncountable nouns)*
+   - *Danh từ đếm được (Countable nouns)*: là danh từ chỉ vật thể, con người, khái niệm,... riêng rẻ có thể đếm được.
+                Ví dụ: /book (sách), table (cái bàn), cat (con mèo), student (học sinh)/.
+   - *Danh từ không đếm được (Uncountable nouns)*: là danh từ chỉ vật liệu, chất liệu, chất lỏng, những khái niệm trừu tượng và những thứ mà chúng ta xem như một khối không thể tách rời hoặc không thể đếm được.
+                Ví dụ: /water (nước), sugar (đường), rice (gạo), money (tiền), information (thông tin)/.
+4. *Danh từ đơn và danh từ ghép (Simple and compund nouns)*
+   Về hình thức, một danh từ có thể là danh từ đơn (simple noun) hoặc danh từ ghép (compound nouns).
+   - *Danh từ đơn (Simple nouns)*: là danh từ chỉ một từ.
+                Ví dụ: /book (sách), table (cái bàn), cat (con mèo), student (học sinh)/.
+   - *Danh từ ghép (Compound nouns)*: là danh từ được tạo thành từ hai hoặc nhiều từ kết hợp với nhau.
+                Ví dụ: /bookstore (hiệu sách), classroom (phòng học), daughter-in-law (con dâu), washing machine (máy giặt)/.
+5. *Danh từ số nhiều và danh từ số ít (Singular and plural nouns)*
+   Danh từ đếm được (countable nouns) thường có dạng số ít (singular) và số nhiều (plural).
+   - *Danh từ số ít (Singular nouns)*: là danh từ được dùng để chỉ một người, vật, nơi chốn, sự việc, ý tưởng,...
+                Ví dụ: /book (sách), table (cái bàn), cat (con mèo), student (học sinh)/.
+   - *Danh từ số nhiều (Plural nouns)*: là danh từ được dùng để chỉ hai hoặc nhiều người, vật, nơi chốn, sự việc, ý tưởng,...
+                Ví dụ: /books (sách), tables (cái bàn), cats (con mèo), students (học sinh)/.
