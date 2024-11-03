@@ -11,6 +11,7 @@
    - *Ví dụ*: Một struct *Invoice* không nên chịu trách nhiệm cả về việc tính toán và in hóa đơn. Thay vào đó, chúng ta có thể tách ra thành hai struct riêng biệt.
 
    #+begin_src go
+
    package main
 
    import (
@@ -49,41 +50,43 @@
    - *Ý nghĩa*: Nguyên tắc này khuyến khích mở rộng chức năng của một thực thể mà không cần thay đổi mã gốc, giúp giảm thiểu lỗi khi thêm chức năng mới và tăng cường khả năng tái sử dụng.
    - *Ví dụ*: Thay vì sửa đổi struct gốc khi thêm một loại động vật mới, chúng ta có thể mở rộng chương trình bằng cách thêm các struct mới.
 
-      #+begin_src go
-      package main
+   #+begin_src go
 
-      import (
-              "fmt"
-      )
+   package main
 
-      type Animal interface {
-              Speak() string
-      }
+   import (
+           "fmt"
+   )
 
-      type Dog struct{}
+   type Animal interface {
+           Speak() string
+   }
 
-      func (d Dog) Speak() string {
-              return "Woof!"
-      }
+   type Dog struct{}
 
-      type Cat struct{}
+   func (d Dog) Speak() string {
+           return "Woof!"
+   }
 
-      func (c Cat) Speak() string {
-              return "Meow!"
-      }
+   type Cat struct{}
 
-      func PrintAnimalSound(a Animal) {
-              fmt.Println(a.Speak())
-      }
+   func (c Cat) Speak() string {
+           return "Meow!"
+   }
 
-      func main() {
-              dog := Dog{}
-              cat := Cat{}
+   func PrintAnimalSound(a Animal) {
+           fmt.Println(a.Speak())
+   }
 
-              PrintAnimalSound(dog)
-              PrintAnimalSound(cat)
-      }
-      #+end_src
+   func main() {
+           dog := Dog{}
+           cat := Cat{}
+
+           PrintAnimalSound(dog)
+           PrintAnimalSound(cat)
+   }
+
+   #+end_src
 
       Ở đây, chúng ta có thể thêm nhiều loại động vật khác mà không cần thay đổi hàm *PrintAnimalSound*.
 
@@ -92,39 +95,41 @@
    - *Ý nghĩa*: Điều này đảm bảo rằng các lớp con có thể được sử dụng mà không cần quan tâm đến chi tiết thực thi của chúng, giúp cho việc mở rộng và duy trì hệ thống dễ dàng hơn.
    - *Ví dụ*: Giả sử chúng ta có một lớp *Bird* đại diện cho các loài chim và một lớp con *Penguin* đại diện cho loài chim cánh cụt. Trong đó, lớp *Bird* có một phương thức *Fly*.
 
-      #+begin_src go
-      package main
+   #+begin_src go
 
-      import "fmt"
+   package main
 
-      type Bird struct {
-              Name string
-      }
+   import "fmt"
 
-      func (b Bird) Fly() {
-              fmt.Println(b.Name, "is flying")
-      }
+   type Bird struct {
+           Name string
+   }
 
-      type Penguin struct {
-              Bird
-      }
+   func (b Bird) Fly() {
+           fmt.Println(b.Name, "is flying")
+   }
 
-      func (p Penguin) Fly() {
-              fmt.Println(p.Name, "can't fly")
-      }
+   type Penguin struct {
+           Bird
+   }
 
-      func MakeBirdFly(b Bird) {
-              b.Fly()
-      }
+   func (p Penguin) Fly() {
+           fmt.Println(p.Name, "can't fly")
+   }
 
-      func main() {
-              eagle := Bird{Name: "Eagle"}
-              penguin := Penguin{Bird{Name: "Penguin"}}
+   func MakeBirdFly(b Bird) {
+           b.Fly()
+   }
 
-              MakeBirdFly(eagle)
-              MakeBirdFly(penguin.Bird)
-      }
-      #+end_src
+   func main() {
+           eagle := Bird{Name: "Eagle"}
+           penguin := Penguin{Bird{Name: "Penguin"}}
+
+           MakeBirdFly(eagle)
+           MakeBirdFly(penguin.Bird)
+   }
+
+   #+end_src
 
      - *Phân tích*:
        - *Bird*: là lớp cơ bản, đại diện cho các loài chim, với khả năng bay (*Fly*).
@@ -137,96 +142,99 @@
    - *Ý nghĩa*: Nguyên tắc này giúp giảm sự phụ thuộc và sự phức tạp trong hệ thống bằng cách tạo ra các giao diện nhỏ và có mục đích cụ thể.
    - *Ví dụ*: Không nên ép buộc một struct thực hiện các phương thức mà nó không cần.
 
-      #+begin_src go
-      package main
+   #+begin_src go
 
-      import (
-              "fmt"
-      )
+   package main
 
-      type Printer interface {
-              Print() string
-      }
+   import (
+           "fmt"
+   )
 
-      type Scanner interface {
-              Scan() string
-      }
+   type Printer interface {
+           Print() string
+   }
 
-      type MultiFunctionDevice interface {
-              Printer
-              Scanner
-      }
+   type Scanner interface {
+           Scan() string
+   }
 
-      type SimplePrinter struct{}
+   type MultiFunctionDevice interface {
+           Printer
+           Scanner
+   }
 
-      func (sp SimplePrinter) Print() string {
-              return "Printing..."
-      }
+   type SimplePrinter struct{}
 
-      type AdvancedPrinterScanner struct{}
+   func (sp SimplePrinter) Print() string {
+           return "Printing..."
+   }
 
-      func (aps AdvancedPrinterScanner) Print() string {
-              return "Printing..."
-      }
+   type AdvancedPrinterScanner struct{}
 
-      func (aps AdvancedPrinterScanner) Scan() string {
-              return "Scanning..."
-      }
+   func (aps AdvancedPrinterScanner) Print() string {
+           return "Printing..."
+   }
 
-      func main() {
-              sp := SimplePrinter{}
-              fmt.Println(sp.Print())
+   func (aps AdvancedPrinterScanner) Scan() string {
+           return "Scanning..."
+   }
 
-              aps := AdvancedPrinterScanner{}
-              fmt.Println(aps.Print())
-              fmt.Println(aps.Scan())
-      }
+   func main() {
+           sp := SimplePrinter{}
+           fmt.Println(sp.Print())
 
-      #+end_src
+           aps := AdvancedPrinterScanner{}
+           fmt.Println(aps.Print())
+           fmt.Println(aps.Scan())
+   }
 
-      Ở đây, *SimplePrinter* chỉ cần thực hiện interface *Printer*, không cần phải implement phương thức *Scan*.
+   #+end_src
+
+   Ở đây, *SimplePrinter* chỉ cần thực hiện interface *Printer*, không cần phải implement phương thức *Scan*.
 
 ** Nguyên tắc 5: Dependency Inversion Principle (DIP) - Nguyên tắc đảo ngược sự phụ thuộc
    - *Định nghĩa*: Các module cấp cao không nên phụ thuộc vào các module cấp thấp. Cả hai nên phụ thuộc vào các abstraction.
    - *Ý nghĩa*: DIP khuyến khích sử dụng interface hoặc abstract class để giảm sự phụ thuộc giữa các module, từ đó tăng cường tính linh hoạt và khả năng tái sử dụng của hệ thống.
    - *Ví dụ*: Các module cấp cao không nên phụ thuộc vào các module cấp thấp, mà cả hai nên phụ thuộc vào abstraction.
 
-      #+begin_src go
-      package main
+   #+begin_src go
 
-      import (
-              "fmt"
-      )
+   package main
 
-      // Abstraction
-      type Database interface {
-              Connect() string
-      }
+   import (
+           "fmt"
+   )
 
-      // Concrete implementation
-      type MySQLDatabase struct{}
+   // Abstraction
+   type Database interface {
+           Connect() string
+   }
 
-      func (db MySQLDatabase) Connect() string {
-              return "Connected to MySQL"
-      }
+   // Concrete implementation
+   type MySQLDatabase struct{}
 
-      // High-level module
-      type Application struct {
-              Database Database
-      }
+   func (db MySQLDatabase) Connect() string {
+           return "Connected to MySQL"
+   }
 
-      func (app Application) Start() {
-              fmt.Println(app.Database.Connect())
-      }
+   // High-level module
+   type Application struct {
+           Database Database
+   }
 
-      func main() {
-              mysql := MySQLDatabase{}
-              app := Application{Database: mysql}
-              app.Start()
-      }
-      #+end_src
+   func (app Application) Start() {
+           fmt.Println(app.Database.Connect())
+   }
 
-      Trong ví dụ này, *Application* không phụ thuộc trực tiếp vào *MySQLDatabase*, mà phụ thuộc vào abstraction *Database*, giúp cho việc thay đổi hoặc mở rộng ứng dụng dễ dàng hơn mà không ảnh hưởng đến các phần khác của chương trình.
+   func main() {
+           mysql := MySQLDatabase{}
+           app := Application{Database: mysql}
+           app.Start()
+   }
+
+   #+end_src
+
+   Trong ví dụ này, *Application* không phụ thuộc trực tiếp vào *MySQLDatabase*, mà phụ thuộc vào abstraction *Database*, giúp cho việc thay đổi hoặc mở rộng ứng dụng dễ dàng hơn mà không ảnh hưởng đến các phần khác của chương trình.
 
 ** Kết luận
-Tuân thủ *SOLID* giúp tạo ra phần mềm có cấu trúc tốt, dễ bảo trì và mở rộng. Đây là những nguyên tắc cơ bản giúp lập trình viên thiết kế hệ thống linh hoạt và tránh các vấn đề thường gặp như mã phức tạp, khó
+Tuân thủ *SOLID* giúp tạo ra phần mềm có cấu trúc tốt, dễ bảo trì và mở rộng. Đây là những nguyên tắc cơ bản giúp lập trình viên thiết kế hệ thống linh hoạt và tránh các vấn đề thường gặp như mã phức tạp, khó bảo trì hoặc lỗi phát sinh khi mở rộng hệ thống.
