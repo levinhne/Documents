@@ -1,62 +1,82 @@
-#+title: Cấu trúc câu trong tiếng anh (Sentence Structures)
+#+title: Cấu trúc câu trong tiếng Anh (Sentence Structures)
 #+author: levinhne
 
-Câu là tập hợp các từ hoặc cụm từ được sắp xếp theo trật tự và kết cấu nhất định nhằm diễn đạt lời nói, câu hỏi hoặc mệnh lệnh. Thông thường, các câu trong tiếng Anh được cấu thành bởi 5 thành tố cơ bản: Chủ ngữ (Subject), Động từ (Verb), Tân ngữ (Object), Bổ ngữ (Complement) và Trạng ngữ (Adverbial).
+** Cấu trúc câu trong tiếng Anh
+Câu là tập hợp các từ hoặc cụm từ được sắp xếp theo trật tự và kết cấu nhất định nhằm diễn đạt lời nói, câu hỏi hoặc mệnh lệnh. Thông thường, các câu trong tiếng Anh được cấu thành bởi 5 thành tố cơ bản: 
+*Chủ ngữ* (Subject), *Động từ* (Verb), *Tân ngữ* (Object), *Bổ ngữ* (Complement), và *Trạng ngữ* (Adverbial).
 
-* Những thành phần cơ bản của câu:
- 1. *Chủ ngữ (Subject = S)*: là từ hoặc cụm từ chỉ người, sự vật hoặc sự việc làm chủ thể cho hành động của động từ trong câu. Chủ ngữ có thể là một từ hoặc cụm danh từ, động từ nguyên thể hoặc danh động từ, ...
-        *Ví dụ*:
-    - *She* is a student. (Cô ấy là một học sinh.)
-    - *They* are my friends. (Họ là bạn của tôi.)
-    - *My father* is a doctor. (Bố tôi là một bác sĩ.)
-    - *Watching TV to much* is bad for your eyes. (Xem TV quá nhiều không tốt cho mắt của bạn.)
- 2. *Động từ (Verb = V)*: theo sau chủ ngữ, diễn đạt hành động hoặc trạng thái của chủ ngữ trong câu. Động từ chính của câu biến đổi tùy thuộc vào thì của câu, số của chủ ngữ hay trợ động từ đứng trước (nếu có).
-        *Ví dụ*:
-    - She *eats* very much. (Cô ấy ăn rất nhiều.)
-    - Tom can *play* the guitar. (Tom có thể chơi đàn guitar.)
- 3. *Tân ngữ (Object = O)*: là đối tượng chịu tác động của hành động. Tân ngữ thường đứng sau động từ. Có tân ngữ trực tiếp và tân ngữ gián tiếp. Tân ngữ có thể là danh từ, đại từ, động từ nguyên mẫu,... Không phải câu nào cũng có tân ngữ.
-        *Ví dụ*:
-    - My mother bought *a new dress* yesterday. (Mẹ tôi đã mua một chiếc váy mới ngày hôm qua.)
-    - I gave *him a book*. (Tôi đã cho anh ấy một quyển sách.)
- 4. *Bổ ngữ (Complement = C)*: là từ hoặc cụm từ được dùng đi sau động từ nối (/be/feel/look/seem/become/turn/remain/...) hoặc tân ngữ để bổ nghĩa cho chủ ngữ hoặc tân ngữ trong câu. Bổ ngữ có thể là danh từ, cụm động từ...
-        *Ví dụ*:
-    - She is *a teacher*. (Cô ấy là một giáo viên.)
-    - I feel *happy*. (Tôi cảm thấy hạnh phúc.)
- 5. *Trạng ngữ (Adverbial = A)*: là những từ chỉ cách thức xảy ra của hành động, chỉ thời gian, địa điểm, mức độ, tần suất. Trạng ngữ có thể đứng đầu hoặc cuối câu, đứng trước hoặc sau động từ để bổ nghĩa cho động từ, và đứng trước tính từ hoặc trạng từ khác để bổ nghĩa có tính từ hoặc trạng từ đó. Trạng ngữ có thể là một từ (trạng từ), cụm từ hoặc mệnh đề.
-        *Ví dụ*:
-    - Yesterday a new clothes shop was opened. (Ngày hôm qua một cửa hàng quần áo mới đã được mở.)
-    - She speaks English *fluently*. (Cô ấy nói tiếng Anh lưu loát.)
-    - I will go *to school *tomorrow*. (Tôi sẽ đi học vào ngày mai.)
-    - I live *in the city*. (Tôi sống ở thành phố.)
+** Những thành phần cơ bản của câu
+1. *Chủ ngữ (Subject = S)*: là từ hoặc cụm từ chỉ người, sự vật hoặc sự việc làm chủ thể cho hành động của động từ trong câu. Chủ ngữ có thể là một từ, cụm danh từ, động từ nguyên thể, hoặc danh động từ...
 
-* Những cấu trúc câu cơ bản:
- 1. *Subject + Verb*: Câu đơn giản nhất, chỉ có chủ ngữ và động từ.
-         *Ví dụ*:
-    - _She_ _sings_. (Cô ấy hát.)
-    - _It_ is _raining_. (Trời đang mưa.)
-    - _He_ _smiled_. (Anh ta đã cười.)
-    - _They_ _are_ _playing_. (Họ đang chơi.)
-    - _I_ _am_ _reading_. (Tôi đang đọc.)
-    - _You_ _are_ _writing_. (Bạn đang viết.)
-    - _We_ _are_ _learning_. (Chúng tôi đang học.)
-    - _She_ _is_ _cooking_. (Cô ấy đang nấu ăn.)
-    - _He_ _is_ _working_. (Anh ấy đang làm việc.)
- 2. *Subject + Verb + Object*: Câu có chủ ngữ, động từ và tân ngữ.
-        *Ví dụ*:
-    - _I_ _like_ _listening to music_. (Tôi thích nghe nhạc.)
-    - _They_ are _playing_ _football_. (Họ đang chơi bóng đá.)
-    - _She_ _bought_ _a new dress_. (Cô ấy đã mua một chiếc váy mới.)
- 3. *Subject + Verb + Object + Object*: Câu có chủ ngữ, động từ, tân ngữ trực tiếp và tân ngữ gián tiếp
-        *Ví dụ*:
-    - _She_ _gave_ _me_ _a book_. (Cô ấy đã cho tôi một quyển sách.)
-    - _He_ _teaches_ _us_ _English_. (Anh ấy dạy chúng tôi tiếng Anh.)
- 4. *Subject + Verb + Object + Complement*: Câu có chủ ngữ, động từ, tân ngữ và bổ ngữ.
-        *Ví dụ*:
-    - _He_ _considers_ _himselt_ _an artist_. (Anh ấy coi mình là một nghệ sĩ.)
-    - _She_ _made_ _the cake_ _delicious_. (Cô ấy đã làm chiếc bánh trở nên ngon.)
-    - _I_ _find_ _the book_ _interesting_. (Tôi thấy cuốn sách rất thú vị.)
- 5. *Subject + Verb + Object + Adverbial*: Câu có chủ ngữ, động từ, tân ngữ và trạng ngữ.
-        *Ví dụ*:
-    - _She_ _speaks_ _English_ _fluently_. (Cô ấy nói tiếng Anh lưu loát.)
-    - _He_ _goes_ _to school_ _every day_. (Anh ấy đi học mỗi ngày.)
-    - _They_ _are_ _playing_ _football_ _in the park_. (Họ đang chơi bóng đá ở công viên.)
+   *Ví dụ*:
+   - *She* is a student. (Cô ấy là một học sinh.)
+   - *They* are my friends. (Họ là bạn của tôi.)
+   - *My father* is a doctor. (Bố tôi là một bác sĩ.)
+   - *Watching TV too much* is bad for your eyes. (Xem TV quá nhiều không tốt cho mắt của bạn.)
+
+2. *Động từ (Verb = V)*: đứng sau chủ ngữ, diễn đạt hành động hoặc trạng thái của chủ ngữ trong câu. Động từ chính của câu thay đổi tùy theo thì, số của chủ ngữ, hoặc trợ động từ đứng trước (nếu có).
+
+   *Ví dụ*:
+   - She *eats* very much. (Cô ấy ăn rất nhiều.)
+   - Tom can *play* the guitar. (Tom có thể chơi đàn guitar.)
+
+3. *Tân ngữ (Object = O)*: là đối tượng chịu tác động của hành động và thường đứng sau động từ. Có tân ngữ trực tiếp và gián tiếp. Tân ngữ có thể là danh từ, đại từ, động từ nguyên mẫu... Không phải câu nào cũng có tân ngữ.
+
+   *Ví dụ*:
+   - My mother bought *a new dress* yesterday. (Mẹ tôi đã mua một chiếc váy mới ngày hôm qua.)
+   - I gave *him a book*. (Tôi đã cho anh ấy một quyển sách.)
+
+4. *Bổ ngữ (Complement = C)*: là từ hoặc cụm từ bổ nghĩa cho chủ ngữ hoặc tân ngữ, thường đi sau động từ nối (*be/feel/look/seem/become/turn/remain*...). Bổ ngữ có thể là danh từ, cụm danh từ hoặc tính từ.
+
+   *Ví dụ*:
+   - She is *a teacher*. (Cô ấy là một giáo viên.)
+   - I feel *happy*. (Tôi cảm thấy hạnh phúc.)
+
+5. *Trạng ngữ (Adverbial = A)*: là từ chỉ cách thức xảy ra của hành động, chỉ thời gian, địa điểm, mức độ, tần suất. Trạng ngữ có thể đứng đầu hoặc cuối câu, đứng trước hoặc sau động từ để bổ nghĩa, và có thể là một từ, cụm từ hoặc mệnh đề.
+
+   *Ví dụ*:
+   - Yesterday, a new clothes shop was opened. (Ngày hôm qua, một cửa hàng quần áo mới đã được mở.)
+   - She speaks English *fluently*. (Cô ấy nói tiếng Anh lưu loát.)
+   - I will go *to school tomorrow*. (Tôi sẽ đi học vào ngày mai.)
+   - I live *in the city*. (Tôi sống ở thành phố.)
+
+** Những cấu trúc câu cơ bản
+1. *Subject + Verb*: Câu đơn giản nhất, chỉ có chủ ngữ và động từ.
+
+   *Ví dụ*:
+   - _She_ _sings_. (Cô ấy hát.)
+   - _It_ is _raining_. (Trời đang mưa.)
+   - _He_ _smiled_. (Anh ta đã cười.)
+   - _They_ _are_ _playing_. (Họ đang chơi.)
+   - _I_ _am_ _reading_. (Tôi đang đọc.)
+   - _You_ _are_ _writing_. (Bạn đang viết.)
+   - _We_ _are_ _learning_. (Chúng tôi đang học.)
+   - _She_ _is_ _cooking_. (Cô ấy đang nấu ăn.)
+   - _He_ _is_ _working_. (Anh ấy đang làm việc.)
+
+2. *Subject + Verb + Object*: Câu có chủ ngữ, động từ và tân ngữ.
+
+   *Ví dụ*:
+   - _I_ _like_ _listening to music_. (Tôi thích nghe nhạc.)
+   - _They_ are _playing_ _football_. (Họ đang chơi bóng đá.)
+   - _She_ _bought_ _a new dress_. (Cô ấy đã mua một chiếc váy mới.)
+
+3. *Subject + Verb + Object + Object*: Câu có chủ ngữ, động từ, tân ngữ trực tiếp và gián tiếp.
+
+   *Ví dụ*:
+   - _She_ _gave_ _me_ _a book_. (Cô ấy đã cho tôi một quyển sách.)
+   - _He_ _teaches_ _us_ _English_. (Anh ấy dạy chúng tôi tiếng Anh.)
+
+4. *Subject + Verb + Object + Complement*: Câu có chủ ngữ, động từ, tân ngữ và bổ ngữ.
+
+   *Ví dụ*:
+   - _He_ _considers_ _himself_ _an artist_. (Anh ấy coi mình là một nghệ sĩ.)
+   - _She_ _made_ _the cake_ _delicious_. (Cô ấy đã làm chiếc bánh trở nên ngon.)
+   - _I_ _find_ _the book_ _interesting_. (Tôi thấy cuốn sách rất thú vị.)
+
+5. *Subject + Verb + Object + Adverbial*: Câu có chủ ngữ, động từ, tân ngữ và trạng ngữ.
+
+   *Ví dụ*:
+   - _She_ _speaks_ _English_ _fluently_. (Cô ấy nói tiếng Anh lưu loát.)
+   - _He_ _goes_ _to school_ _every day_. (Anh ấy đi học mỗi ngày.)
+   - _They_ _are_ _playing_ _football_ _in the park_. (Họ đang chơi bóng đá ở công viên.)
