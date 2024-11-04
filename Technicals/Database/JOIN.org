@@ -1,0 +1,114 @@
+* So sánh và ví dụ chi tiết các loại JOIN trong SQL
+
+** 1. Các loại JOIN trong SQL
+   - **INNER JOIN**: Kết hợp các bản ghi có giá trị chung trong hai bảng.
+   - **LEFT JOIN (LEFT OUTER JOIN)**: Trả về tất cả bản ghi từ bảng bên trái và các bản ghi phù hợp từ bảng bên phải.
+   - **RIGHT JOIN (RIGHT OUTER JOIN)**: Trả về tất cả bản ghi từ bảng bên phải và các bản ghi phù hợp từ bảng bên trái.
+   - **FULL JOIN (FULL OUTER JOIN)**: Trả về tất cả bản ghi từ cả hai bảng, với NULL ở các cột không có giá trị phù hợp.
+   - **CROSS JOIN**: Tạo ra sản phẩm Descartes của hai bảng, kết hợp tất cả các hàng từ bảng này với tất cả các hàng từ bảng kia.
+   - **SELF JOIN**: JOIN bảng với chính nó, thường dùng khi cần so sánh dữ liệu trong cùng một bảng.
+
+** 2. Ví dụ cụ thể cho từng loại JOIN với hai bảng Employees và Departments
+
+*** Bảng Employees
+    | employee_id | employee_name | department_id | manager_id |
+    |-------------+---------------+---------------+------------|
+    | 1           | John          | 1             | NULL       |
+    | 2           | Alice         | 2             | 1          |
+    | 3           | Bob           | NULL          | 1          |
+    | 4           | Eve           | 1             | 2          |
+    | 5           | Carol         | 3             | 2          |
+
+*** Bảng Departments
+    | department_id | department_name |
+    |---------------+-----------------|
+    | 1             | HR              |
+    | 2             | Sales           |
+    | 3             | IT              |
+    | 4             | Marketing       |
+
+*** Ví dụ INNER JOIN
+    #+BEGIN_SRC sql
+    SELECT Employees.employee_id, Employees.employee_name, Departments.department_name
+    FROM Employees
+    INNER JOIN Departments ON Employees.department_id = Departments.department_id;
+    #+END_SRC
+
+    | employee_id | employee_name | department_name |
+    |-------------+---------------+-----------------|
+    | 1           | John          | HR              |
+    | 2           | Alice         | Sales           |
+    | 4           | Eve           | HR              |
+    | 5           | Carol         | IT              |
+
+*** Ví dụ LEFT JOIN
+    #+BEGIN_SRC sql
+    SELECT Employees.employee_id, Employees.employee_name, Departments.department_name
+    FROM Employees
+    LEFT JOIN Departments ON Employees.department_id = Departments.department_id;
+    #+END_SRC
+
+    | employee_id | employee_name | department_name |
+    |-------------+---------------+-----------------|
+    | 1           | John          | HR              |
+    | 2           | Alice         | Sales           |
+    | 3           | Bob           | NULL            |
+    | 4           | Eve           | HR              |
+    | 5           | Carol         | IT              |
+
+*** Ví dụ RIGHT JOIN
+    #+BEGIN_SRC sql
+    SELECT Employees.employee_id, Employees.employee_name, Departments.department_name
+    FROM Employees
+    RIGHT JOIN Departments ON Employees.department_id = Departments.department_id;
+    #+END_SRC
+
+    | employee_id | employee_name | department_name |
+    |-------------+---------------+-----------------|
+    | 1           | John          | HR              |
+    | 4           | Eve           | HR              |
+    | 2           | Alice         | Sales           |
+    | 5           | Carol         | IT              |
+    | NULL        | NULL          | Marketing       |
+
+*** Ví dụ FULL JOIN (FULL OUTER JOIN)
+    #+BEGIN_SRC sql
+    SELECT Employees.employee_id, Employees.employee_name, Departments.department_name
+    FROM Employees
+    FULL JOIN Departments ON Employees.department_id = Departments.department_id;
+    #+END_SRC
+
+    | employee_id | employee_name | department_name |
+    |-------------+---------------+-----------------|
+    | 1           | John          | HR              |
+    | 4           | Eve           | HR              |
+    | 2           | Alice         | Sales           |
+    | 5           | Carol         | IT              |
+    | 3           | Bob           | NULL            |
+    | NULL        | NULL          | Marketing       |
+
+*** Ví dụ CROSS JOIN
+    #+BEGIN_SRC sql
+    SELECT Employees.employee_id, Employees.employee_name, Departments.department_name
+    FROM Employees
+    CROSS JOIN Departments;
+    #+END_SRC
+
+    (Kết quả có 20 hàng: tất cả các cặp kết hợp giữa hai bảng)
+
+*** Ví dụ SELF JOIN
+    #+BEGIN_SRC sql
+    SELECT E1.employee_name AS Employee, E2.employee_name AS Manager
+    FROM Employees E1
+    LEFT JOIN Employees E2 ON E1.manager_id = E2.employee_id;
+    #+END_SRC
+
+    | Employee | Manager |
+    |----------+---------|
+    | John     | NULL    |
+    | Alice    | John    |
+    | Bob      | John    |
+    | Eve      | Alice   |
+    | Carol    | Alice   |
+
+> **SELF JOIN** được sử dụng để nối bảng với chính nó nhằm lấy thông tin của người quản lý từ cùng một bảng.
