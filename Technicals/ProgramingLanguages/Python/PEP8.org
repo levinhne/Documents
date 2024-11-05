@@ -1,0 +1,242 @@
+* Quy tắc PEP 8 trong Python / PEP 8 Coding Style in Python
+
+** 1. Thụt đầu dòng / Indentation
+   - Sử dụng 4 khoảng trắng cho mỗi mức thụt đầu dòng. Không dùng tab.
+   - Use 4 spaces per indentation level. Do not use tabs.
+
+   #+BEGIN_SRC python
+   def chao(name):
+       if name:
+           print(f"Xin chào, {name}!")
+       else:
+           print("Xin chào, Thế giới!")
+   #+END_SRC
+
+** 2. Độ dài dòng / Maximum Line Length
+   - Giới hạn tất cả các dòng không quá 79 ký tự.
+   - Limit all lines to a maximum of 79 characters.
+   - Với biểu thức dài, dùng dấu ngoặc tròn để tách dòng.
+   - For longer expressions, use parentheses for line continuation.
+
+   #+BEGIN_SRC python
+   def ten_ham_rat_dai(
+           tham_so1, tham_so2, tham_so3,
+           tham_so4, tham_so5):
+       return tham_so1 + tham_so2 + tham_so3 + tham_so4 + tham_so5
+   #+END_SRC
+
+** 3. Dấu cách / Whitespace
+   - Tránh dấu cách thừa xung quanh dấu ngoặc đơn, ngoặc vuông hoặc ngoặc nhọn.
+   - Avoid extra whitespace around parentheses, brackets, or braces.
+
+   #+BEGIN_SRC python
+   # Đúng / Correct
+   ham(danh_sach[1], {trung: 2})
+
+   # Sai / Incorrect
+   ham( danh_sach[ 1 ], { trung: 2 } )
+   #+END_SRC
+
+** 4. Quy ước đặt tên / Naming Conventions
+   - Tên biến và hàm nên viết thường với dấu gạch dưới giữa các từ.
+   - Variable and function names should be lowercase with words separated by underscores.
+   - Hằng số nên viết hoa và sử dụng dấu gạch dưới.
+   - Constants should be in uppercase with words separated by underscores.
+
+   #+BEGIN_SRC python
+   def tinh_gia_san_pham(gia, thue):
+       pass
+
+   TOI_DA_KET_NOI = 100
+   #+END_SRC
+
+** 5. Nhập thư viện / Imports
+   - Nhập từng thư viện trên một dòng riêng.
+   - Imports should usually be on separate lines.
+   - Thứ tự các thư viện: thư viện chuẩn, thư viện bên thứ ba, và thư viện nội bộ.
+   - Order imports into three sections: standard library, third-party libraries, and local packages.
+
+   #+BEGIN_SRC python
+   import os
+   import sys
+
+   from ben_thu_ba import requests
+   from goi_cua_toi import module_cua_toi
+   #+END_SRC
+
+** 6. Khoảng trống xung quanh toán tử / Spacing Around Operators
+   - Dùng dấu cách xung quanh các toán tử như `=`, `+`, `-`, v.v.
+   - Use whitespace around operators like `=`, `+`, `-`, etc.
+
+   #+BEGIN_SRC python
+   x = 5 + 3
+   #+END_SRC
+
+** 7. Dòng trống / Blank Lines
+   - Dùng 2 dòng trống để phân tách các hàm và lớp ở cấp cao nhất.
+   - Use two blank lines to separate top-level functions and class definitions.
+   - Dùng 1 dòng trống để phân tách các phương thức trong một lớp.
+   - Use a single blank line to separate methods within a class.
+
+   #+BEGIN_SRC python
+   class LopCuaToi:
+       pass
+
+
+   def ham_cua_toi():
+       pass
+   #+END_SRC
+
+** 8. Bình luận / Comments
+   - Sử dụng bình luận để giải thích những đoạn mã không rõ ràng.
+   - Use comments to explain non-obvious code.
+   - Đặt bình luận cách mã ít nhất hai khoảng trắng.
+   - Place inline comments at least two spaces from code.
+
+   #+BEGIN_SRC python
+   x = x + 1  # Tăng giá trị x lên 1 / Increment x by 1
+   #+END_SRC
+
+** 9. Chuỗi tài liệu / Docstrings
+   - Viết chuỗi tài liệu (docstring) cho tất cả các module, hàm, lớp và phương thức công khai.
+   - Include docstrings for all public modules, functions, classes, and methods.
+
+   #+BEGIN_SRC python
+   def cong(a, b):
+       """Cộng hai số lại với nhau / Adds two numbers.
+
+       Args:
+           a (int): Số thứ nhất / First number.
+           b (int): Số thứ hai / Second number.
+
+       Returns:
+           int: Tổng của hai số / Sum of the two numbers.
+       """
+       return a + b
+   #+END_SRC
+
+** 10. Hàm và thuộc tính riêng tư / Private Functions and Attributes
+   - Đặt dấu gạch dưới (`_`) trước tên hàm và thuộc tính để chỉ rằng chúng là riêng tư.
+   - Prefix private functions and variables with a single underscore (`_`).
+
+   #+BEGIN_SRC python
+   class LopCuaToi:
+       def __init__(self):
+           self._bien_rieng_tu = 42
+   #+END_SRC
+
+** 11. Dùng dấu ngoặc đơn để tách dòng / Use Parentheses for Continuation
+   - Khi tách dòng dài, dùng dấu ngoặc tròn thay vì dấu gạch nối.
+   - When breaking a long line, use parentheses instead of a backslash.
+
+   #+BEGIN_SRC python
+   tong = (bien_dau +
+           bien_thu_hai -
+           bien_thu_ba)
+   #+END_SRC
+
+** 12. Dấu phẩy cuối / Trailing Commas
+   - Thêm dấu phẩy ở cuối danh sách, từ điển, hoặc cấu trúc dữ liệu nhiều dòng.
+   - Use trailing commas for lists, dictionaries, and multi-line data structures.
+
+   #+BEGIN_SRC python
+   danh_sach = [
+       1,
+       2,
+       3,
+   ]
+
+   tu_dien = {
+       'key1': 'value1',
+       'key2': 'value2',
+   }
+   #+END_SRC
+
+** 13. Tránh sử dụng nhiều lệnh trên một dòng / Avoid Compound Statements
+   - Không nên dùng nhiều lệnh trên cùng một dòng.
+   - Do not use multiple statements on the same line.
+
+   #+BEGIN_SRC python
+   # Đúng / Correct
+   if foo == 'bar':
+       lam_gi_do()
+
+   # Sai / Incorrect
+   if foo == 'bar': lam_gi_do()
+   #+END_SRC
+
+** 14. Tránh nhập thư viện với dấu sao / Avoid Using Wildcard Imports
+   - Tránh `from module import *` vì có thể gây xung đột tên.
+   - Avoid `from module import *` as it can create naming conflicts.
+
+   #+BEGIN_SRC python
+   from math import sqrt, sin
+   #+END_SRC
+
+** 15. Dùng `is` và `is not` để so sánh với `None` / Use `is` and `is not` for Comparisons with None
+   - Luôn dùng `is` hoặc `is not` khi so sánh với `None`.
+   - Always compare to `None` using `is` or `is not`.
+
+   #+BEGIN_SRC python
+   if bien is None:
+       pass
+   #+END_SRC
+
+** 16. Quy ước đặt tên đặc biệt / Naming Conventions for Special Cases
+   - Sử dụng dấu gạch dưới đầu để chỉ tên nội bộ (`_ten`).
+   - Use single leading underscore for internal-use names (`_name`).
+   - Sử dụng dấu gạch dưới cuối để tránh trùng với từ khóa (`class_`).
+   - Use trailing underscore to avoid conflicts with keywords (`class_`).
+   - Dấu hai gạch dưới để tránh xung đột tên trong lớp kế thừa (`__ten`).
+   - Double underscores for name mangling (`__name`).
+
+   #+BEGIN_SRC python
+   class LopCuaToi:
+       def __init__(self):
+           self._bien_noi_bo = 10
+   #+END_SRC
+
+** 17. Tránh dùng đối số mặc định có thể thay đổi / Avoid Mutable Default Arguments
+   - Tránh dùng các loại dữ liệu có thể thay đổi như danh sách làm đối số mặc định.
+   - Avoid using mutable types like lists as default arguments.
+
+   #+BEGIN_SRC python
+   def ham_cua_toi(danh_sach=None):
+       if danh_sach is None:
+           danh_sach = []
+   #+END_SRC
+
+** 18. Đặt biến tạm thời trong hàm / Place Temporary Variables Inside Functions
+   - Đặt biến tạm thời trong hàm để giới hạn phạm vi của chúng.
+   - Place temporary variables within functions to limit their scope.
+
+   #+BEGIN_SRC python
+   def tinh_dien_tich(ban_kinh):
+       pi = 3.14159
+       return pi * ban_kinh ** 2
+   #+END_SRC
+
+** 19. Xử lý ngoại lệ / Exception Handling
+   - Bắt các ngoại lệ cụ thể, tránh dùng `except` không có điều kiện.
+   - Catch specific exceptions, avoid using a bare `except`.
+
+   #+BEGIN_SRC python
+   try:
+       ket_qua = 10 / 0
+   except ZeroDivisionError:
+       print("Không thể chia cho 0.")
+   #+END_SRC
+
+** 20. Chỉ dùng một lệnh return duy nhất trong các hàm đơn giản / Only Use a Single Return in Simple Functions
+   - Trong các hàm đơn giản, chỉ nên dùng một lệnh `return`.
+   - In simple functions, try to use a single return statement.
+
+   #+BEGIN_SRC python
+   def kiem_tra_gia_tri(value):
+       if value > 10:
+           ket_qua = "Lớn hơn 10"
+       else:
+           ket_qua = "10 hoặc ít hơn"
+       return ket_qua
+   #+END_SRC
+
