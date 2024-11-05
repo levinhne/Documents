@@ -1,0 +1,107 @@
+* Định nghĩa và cách dùng hàm trong Python
+Hàm trong Python là một khối mã có thể tái sử dụng để thực hiện một nhiệm vụ cụ thể, giúp mã dễ đọc, tổ chức và bảo trì hơn. Dưới đây là cách định nghĩa và sử dụng hàm trong Python.
+
+** 1. Định nghĩa hàm
+   - Hàm được định nghĩa bằng từ khóa *def*, theo sau là tên hàm và cặp ngoặc tròn chứa các tham số (nếu có).
+   - Cấu trúc cơ bản:
+     #+BEGIN_SRC python
+     def ten_ham(tham_so_1, tham_so_2, ...):
+         # Thân hàm
+         return gia_tri_tra_ve
+     #+END_SRC
+   - *Tên hàm*: Nên đặt tên rõ ràng, tuân theo quy tắc snake_case.
+   - *Tham số*: Các giá trị được truyền vào hàm để xử lý.
+   - *return*: Trả về giá trị từ hàm (không bắt buộc nếu hàm không cần trả về gì).
+
+** 2. Ví dụ về hàm cơ bản
+   - Ví dụ hàm không có tham số và không trả về giá trị:
+     #+BEGIN_SRC python
+     def chao():
+         print("Xin chào!")
+     chao()  # Gọi hàm
+     #+END_SRC
+   - Ví dụ hàm có tham số và có giá trị trả về:
+     #+BEGIN_SRC python
+     def tong(a, b):
+         return a + b
+     ket_qua = tong(3, 5)
+     print(ket_qua)  # In ra: 8
+     #+END_SRC
+
+** 3. Hàm với tham số mặc định
+   - Có thể đặt giá trị mặc định cho tham số trong hàm. Nếu không truyền giá trị cho tham số khi gọi hàm, nó sẽ dùng giá trị mặc định.
+   - Ví dụ:
+     #+BEGIN_SRC python
+     def chao(ten="bạn"):
+         print(f"Xin chào, {ten}!")
+     chao()         # In ra: Xin chào, bạn!
+     chao("Nam")    # In ra: Xin chào, Nam!
+     #+END_SRC
+
+** 4. Hàm với tham số không xác định (*args và **kwargs)
+   - Sử dụng *args khi muốn truyền một số lượng tham số không xác định cho hàm.
+   - Sử dụng **kwargs khi muốn truyền các tham số dưới dạng từ khóa.
+   - Ví dụ:
+     #+BEGIN_SRC python
+     def tong_tat_ca(*args):
+         return sum(args)
+     print(tong_tat_ca(1, 2, 3, 4))  # In ra: 10
+     
+     def chi_tiet(**kwargs):
+         for key, value in kwargs.items():
+             print(f"{key}: {value}")
+     chi_tiet(ten="Nam", tuoi=25)
+     #+END_SRC
+
+** 5. Type Hints - Gợi ý kiểu dữ liệu và return type hints
+   - Type hints giúp chỉ định kiểu dữ liệu của tham số và giá trị trả về, giúp mã rõ ràng hơn.
+   - Cú pháp:
+     #+BEGIN_SRC python
+     def ten_ham(tham_so: kieu_du_lieu) -> kieu_tra_ve:
+         return gia_tri_tra_ve
+     #+END_SRC
+   - Ví dụ trả về số nguyên:
+     #+BEGIN_SRC python
+     def tong(a: int, b: int) -> int:
+         return a + b
+     #+END_SRC
+   - Trả về không có giá trị (*None*):
+     #+BEGIN_SRC python
+     def in_loi_nhan() -> None:
+         print("Đây là thông báo.")
+     #+END_SRC
+   - Sử dụng kiểu phức tạp với `typing`:
+     #+BEGIN_SRC python
+     from typing import List, Dict
+     def tao_danh_sach_so() -> List[int]:
+         return [1, 2, 3, 4]
+     #+END_SRC
+
+** 6. Trả về nhiều giá trị từ hàm
+   - *Tuple*: Phù hợp khi ít giá trị và không cần gán nhãn.
+     #+BEGIN_SRC python
+     def lay_thong_tin():
+         return "Nam", 25, "Hà Nội"
+     #+END_SRC
+   - *Dictionary*: Phù hợp khi cần rõ ràng về tên các giá trị.
+     #+BEGIN_SRC python
+     def thong_tin_sinh_vien():
+         return {"ten": "Nam", "tuoi": 25, "dia_chi": "Hà Nội"}
+     #+END_SRC
+   - *NamedTuple* và *DataClass*: Kết hợp tính gọn gàng và có cấu trúc rõ ràng, sử dụng khi có nhiều thuộc tính.
+     #+BEGIN_SRC python
+     from dataclasses import dataclass
+     @dataclass
+     class SinhVien:
+         ten: str
+         tuoi: int
+         dia_chi: str
+     def thong_tin_sinh_vien() -> SinhVien:
+         return SinhVien(ten="Nam", tuoi=25, dia_chi="Hà Nội")
+     #+END_SRC
+
+** 7. Tổng kết
+   - Hàm giúp mã dễ tổ chức, tái sử dụng và bảo trì.
+   - Có thể dùng *return* để trả về giá trị, *args và **kwargs để hỗ trợ tham số linh hoạt.
+   - Type hints và return type hints giúp mã dễ hiểu và giảm lỗi.
+   - Trả về nhiều giá trị: chọn *tuple*, *dictionary*, *namedtuple*, hoặc *dataclass* tùy theo mức độ phức tạp và nhu cầu rõ ràng.
