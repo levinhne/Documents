@@ -1,0 +1,98 @@
+* Set trong Python
+   Set là một cấu trúc dữ liệu trong Python, chứa các phần tử không trùng lặp và không có thứ tự. Set thường được dùng để thực hiện các thao tác tập hợp như hợp, giao, hiệu, và hiệu đối xứng.
+
+** Tạo set
+   Có thể tạo set bằng `{}` hoặc `set()`.
+
+   #+begin_src python
+   my_set = {1, 2, 3}
+   my_set_from_list = set([1, 2, 2, 3])
+   print(my_set)             # Output: {1, 2, 3}
+   print(my_set_from_list)    # Output: {1, 2, 3}
+   #+end_src
+
+** Các thao tác cơ bản với set
+   - Thêm phần tử: *add()*
+   - Xóa phần tử: *remove()*, *discard()*
+   - Xóa toàn bộ: *clear()*
+   - Sao chép set: *copy()*
+   - Kiểm tra sự tồn tại phần tử: *in*
+
+** Các phép toán trên set
+   - Hợp (Union): *union()* hoặc `|`
+     #+begin_src python
+     union_set = set1 | set2
+     #+end_src
+
+   - Giao (Intersection): *intersection()* hoặc `&`
+     #+begin_src python
+     intersection_set = set1 & set2
+     #+end_src
+
+   - Hiệu (Difference): *difference()* hoặc `-`
+     #+begin_src python
+     difference_set = set1 - set2
+     #+end_src
+
+   - Hiệu đối xứng (Symmetric Difference): *symmetric_difference()* hoặc `^`
+     #+begin_src python
+     symmetric_difference_set = set1 ^ set2
+     #+end_src
+
+** Ví dụ: Sử dụng set trong RESTful API
+   Trong dự án RESTful API, set có thể dùng để xử lý dữ liệu không trùng lặp hoặc lọc dữ liệu theo các điều kiện cụ thể. Dưới đây là ví dụ về Flask API:
+
+   #+begin_src python
+   from flask import Flask, jsonify, request
+
+   app = Flask(__name__)
+   articles = [
+       {"id": 1, "title": "Learn Python", "tags": {"python", "programming", "beginner"}},
+       {"id": 2, "title": "RESTful APIs with Flask", "tags": {"flask", "rest", "python"}},
+       {"id": 3, "title": "Advanced Flask", "tags": {"flask", "python", "advanced"}},
+       {"id": 4, "title": "Data Science with Python", "tags": {"python", "data science"}},
+   ]
+
+   @app.route('/tags', methods=['GET'])
+   def get_unique_tags():
+       all_tags = set()
+       for article in articles:
+           all_tags.update(article["tags"])
+       return jsonify({"unique_tags": list(all_tags)})
+
+   @app.route('/articles', methods=['GET'])
+   def filter_articles_by_tags():
+       requested_tags = set(request.args.getlist('tag'))
+       filtered_articles = [
+           article for article in articles
+           if article['tags'].intersection(requested_tags)
+       ]
+       return jsonify(filtered_articles)
+
+   if __name__ == '__main__':
+       app.run(debug=True)
+   #+end_src
+
+** Các hàm xử lý với set
+   - *add(elem)*: Thêm phần tử vào set.
+   - *remove(elem)*: Xóa phần tử khỏi set, lỗi nếu không tồn tại.
+   - *discard(elem)*: Xóa phần tử khỏi set, không gây lỗi nếu không tồn tại.
+   - *clear()*: Xóa tất cả các phần tử.
+   - *copy()*: Tạo bản sao của set.
+   - *union(*sets)*: Hợp set hiện tại với các set khác.
+   - *update(*sets)*: Cập nhật set hiện tại với các phần tử từ set khác.
+   - *intersection(*sets)*: Lấy giao của set hiện tại và set khác.
+   - *intersection_update(*sets)*: Cập nhật giữ lại phần tử chung.
+   - *difference(*sets)*: Lấy các phần tử không có trong set khác.
+   - *difference_update(*sets)*: Cập nhật loại bỏ các phần tử có trong set khác.
+   - *symmetric_difference(other_set)*: Lấy các phần tử có trong một trong hai set.
+   - *symmetric_difference_update(other_set)*: Cập nhật giữ các phần tử không chung.
+   - *issubset(other_set)*: Kiểm tra set con.
+   - *issuperset(other_set)*: Kiểm tra set cha.
+   - *isdisjoint(other_set)*: Kiểm tra hai set có giao không.
+   - *len(set)*: Đếm số phần tử trong set.
+   - *in*: Kiểm tra phần tử có trong set không.
+   - *not in*: Kiểm tra phần tử không có trong set.
+
+* Kết luận
+   Set là cấu trúc dữ liệu hiệu quả trong Python, hữu ích trong các thao tác với tập hợp không thứ tự và không trùng lặp, rất hữu ích trong các ứng dụng như RESTful API.
