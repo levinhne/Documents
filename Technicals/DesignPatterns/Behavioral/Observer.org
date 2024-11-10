@@ -143,7 +143,7 @@ Giả sử bạn có ứng dụng dự báo thời tiết. Có một đối tư�
 
 ** Ví dụ trong Go
 
-   #+begin_src go
+#+begin_src go
    package main
 
    import (
@@ -223,3 +223,4 @@ Giả sử bạn có ứng dụng dự báo thời tiết. Có một đối tư�
        // Output:
        // Observer 1 received update: New State 1
        // Observer 2 received
+#+end_src
